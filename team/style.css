@@ -1,0 +1,16 @@
+#mid img {
+    width: 16vw;
+}
+
+#middle {
+    position: absolute;
+    left: 50vw;
+    top: 30vh;
+    transform: translate(-50%, -50%);
+}
+
+#middle .team {
+    padding-top: 1vh;
+    border: 1px solid black;
+    width: 18vw;
+}
