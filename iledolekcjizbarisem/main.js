@@ -37,13 +37,18 @@ function setupBackground() {
 }
 
 setInterval(() => {
-    let str = "";
     let d = new Date();
-    str+=((8-d.getDay())*24 + (24-d.getHours())) + "h:";
-    str+=fixTime(60-d.getMinutes()) + "m:";
-    str+=fixTime(60-d.getSeconds()) + "s";
+    let day = d.getDay() == 0 ? 7 : d.getDay();
 
-    timer.innerHTML = str;
+    let hrs = ((8-day)*24 + (11-d.getHours())),
+    mins = 30-d.getMinutes(), secs = 60-d.getSeconds();
+
+    if(mins <= 0) {
+        hrs--;
+        mins = 60+mins;
+    }
+
+    timer.innerHTML = hrs + "h:" + mins + "min:" + secs + "sec";
 }, 500);
 
 function fixTime(param) {
