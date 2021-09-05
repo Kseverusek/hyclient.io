@@ -43,6 +43,10 @@ setInterval(() => {
     let hrs = ((8-day)*24 + (11-d.getHours())),
     mins = 30-d.getMinutes(), secs = 60-d.getSeconds();
 
+    if(day == 1) {
+        hrs = 11-d.getHours();
+    }
+
     if(mins <= 0) {
         hrs--;
         mins = 60+mins;
