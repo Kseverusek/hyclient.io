@@ -1,0 +1,89 @@
+@import url('font.css');
+
+body {
+    background-color: rgb(17, 17, 17);
+    font-family: 'VT323', monospace;
+    font-size: 200%;
+    user-select: none;
+}
+
+.particles {
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+.links {
+    position: absolute;
+    top: 0;
+    left: 0;
+    
+    color: white;
+    font-size: 125%;
+}
+:any-link {
+    color: white;
+}
+.links .extend {
+    display: none;
+}
+.links:hover .extend {
+    display: block;
+}
+.links .title {
+    font-size: 150%;
+}
+
+
+
+.mid {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 500px;
+    height: 350px;
+
+    text-align: center;
+    color: white;
+    background-color: rgba(150, 150, 150, 0.24);
+    border-radius: 20px;
+}
+.mid .title {
+    font-size: 200%;
+}
+.mid .start {
+    padding-top: 5px;
+    width: 100px;
+    height: 45px;
+    background-image: url("../textures/startButton.png");
+}
+.mid .host {
+    position: absolute;
+    top: 80%;
+    left: 30%;
+    transform: translate(-50%, -50%);
+}
+.mid .join {
+    position: absolute;
+    top: 80%;
+    left: 70%;
+    transform: translate(-50%, -50%);
+}
+.text {
+    padding-top: 5px;
+    width: 300px;
+    height: 45px;
+    background-image: url("../textures/textField.png");
+}
+.mid .nick {
+    position: absolute;
+    top: 45%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+.mid .gameid {
+    position: absolute;
+    top: 60%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
