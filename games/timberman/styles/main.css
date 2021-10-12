@@ -1,0 +1,52 @@
+@import url('font.css');
+
+body {
+    font-family: 'VT323';
+    background-color: rgb(100, 100, 100);
+    user-select: none;
+}
+
+.mid {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 50px;
+    text-align: center;
+
+    width: 500px;
+    height: 300px;
+}
+
+.mid .title {
+    font-size: 75px;
+    font-weight: 900;
+}
+
+.mid .desc {
+    font-size: 40px;
+}
+
+.mid .start {
+    position: absolute;
+    bottom: 50px;
+    left: 50%;
+    transform: translate(-50%, 0);
+
+    background-color: rgb(42, 155, 20);
+    border-radius: 15px;
+    width: 150px;
+    height: 50px;
+    transition: all 0.5s;
+}
+
+.mid .start:hover {
+    width: 250px;
+    background-color: rgb(85, 216, 59);
+}
+
+.cv {
+    position: absolute;
+    top: 0;
+    left: 0;
+}
