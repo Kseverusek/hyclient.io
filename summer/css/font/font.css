@@ -1,0 +1,8 @@
+@font-face {
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 500;
+    font-display: swap;
+    src: url('Roboto-Bold.ttf') format('trueType');
+    unicode-range: U+1F00-1FFF;
+  }
