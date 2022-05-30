@@ -1,7 +1,8 @@
 const cubes = [];
 const list = document.querySelector(".list");
 const listEl = [
-    ["Example project", "This is an example project that doesn't do much here", "https://example.com"]
+    ["Example project", "This is an example project that doesn't do much here", "https://example.com"],
+    ["Tic Tac Toe", "Simple multiplayer tic tac toe", "/tictactoe/index.html"]
 ];
 var conf = {
     bgColor: "rgb(50, 50, 50)"
