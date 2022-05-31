@@ -1,8 +1,17 @@
+/**
+ * >2 players = spectate
+ * random start
+ * public/private game
+ * game search menu
+ * chat
+ */
+
 const winner = document.querySelector(".winner");
 const turndiv = document.querySelector(".turn");
 const gamediv = document.querySelector(".game");
 const menudiv = document.querySelector(".menu");
 const lobbydiv = document.querySelector(".lobby");
+const replaydiv = document.querySelector(".replay");
 const args = new URLSearchParams(window.location.search);
 const alphabet = "abcdefghijklmnopqrstuvwxyz0123456789".split("");
 
@@ -28,6 +37,12 @@ function init() {
                     host: host,
                     move: -1
                 });
+                gameref.once('value', (e) => {
+                    e.forEach((el, i) => {
+                        let v = el.val();
+                        console.log(v);
+                    });
+                });
 
                 ref.onDisconnect().remove();
             }
@@ -48,9 +63,25 @@ function startGame() {
         turn = 1;
     }
     turndiv.innerHTML = "It's "+(turn==0?"Your":"Opponent")+"'s turn!";
+    winner.innerHTML = "Get three of your symbols in a row to win!";
 }
 
 window.onclick = (e) => {
+    if(e.target.className.includes("replay")) {
+        winner.innerHTML = "Get three of your symbols in a row to win!";
+        if(online) resetDatabase();
+        else {
+            game = [-1, -1, -1, -1, -1, -1, -1, -1, -1];
+            turn = 0;
+            moves = 0;
+            playing = true;
+            for(let i = 1; i < 10; i++) {
+                document.querySelector(".cell"+i).innerHTML = "&nbsp;";
+            }
+            replaydiv.className+=" hidden";
+        }
+        turndiv.innerHTML = "It's "+(turn==0?"O":"X")+"'s turn!";
+    }
     if(!playing) return;
     if(!online) {
         if(e.target.className.includes("cell")) {
@@ -115,7 +146,7 @@ function checkMoves() {
         if(game[0] == game[4] && game[0] == game[8] && game[0] == i) win(i);
         if(game[2] == game[4] && game[2] == game[6] && game[2] == i) win(i);
     }
-    if(moves >= 9) {
+    if(moves >= 9 && playing) {
         win(-1);
         return;
     }
@@ -123,13 +154,15 @@ function checkMoves() {
 function win(player) {
     playing = false;
     if(player==-1) {
-        winner.innerHTML = "Draw!"+(host?"<br><button class=\"replay\">Play again!</button>":"");
+        winner.innerHTML = "Draw!";
+        replaydiv.className = replaydiv.className.replace(" hidden", "");
         return;
     }
     if(!online) winner.innerHTML = (player==0?"O":"X")+"'s won the game!";
     else {
-        winner.innerHTML = (player==(host?0:1)?"O":"X")+"'s won the game!";
+        winner.innerHTML = (player==(host||!online?0:1)?"O":"X")+"'s won the game!";
     }
+    replaydiv.className = replaydiv.className.replace(" hidden", "");
     turndiv.innerHTML = "";
 }
 
@@ -143,9 +176,25 @@ function createGameId() {
     return r;
 }
 
+function resetDatabase() {
+    let oref = firebase.database().ref("games/"+gameid+"/players/"+opponentUUID);
+
+    ref.set({
+        uuid: uuid,
+        host: host,
+        move: host?-2:-1
+    });
+    oref.set({
+        uuid: opponentUUID,
+        host: !host,
+        move: host?-1:-2
+    });
+}
+
 let playerID = -1;
 gameref.on("value", e => {
     console.log("VALUES: ", e.val());
+    if(e.val()==null) return;
     Object.keys(e.val()).forEach((ev, i) => {
         let p = e.val()[ev];
         if(p.uuid==uuid) playerID = i;
@@ -153,6 +202,7 @@ gameref.on("value", e => {
             opponentUUID = p.uuid;
             startGame();
         }
+
         if(opponentUUID != null && p.uuid == opponentUUID && p.move >= 0 && game[p.move] == -1 && playing) {
             console.log(p.uuid, uuid);
             game[p.move] = 1;
@@ -160,6 +210,9 @@ gameref.on("value", e => {
             moves++;
             turndiv.innerHTML = "It's "+(turn==0?"Your":"Opponent")+"'s turn!";
             document.querySelector(".cell"+(p.move+1)).innerHTML = !host ? "O" : "X";
+        }
+        if(p.move == -2 && p.host) {
+            window.location.reload();
         }
         checkMoves();
     });
@@ -171,4 +224,4 @@ gameref.on("child_added", e => {
         opponentUUID = p.uuid;
         startGame();
     }
-})
+});
