@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Item Generator</title>
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+        <input type="text" class="name" placeholder="Display Name"><br>
+        <textarea cols="30" rows="10" class="lore" placeholder="Lore"></textarea><br>
+        Glint <input type="checkbox" class="glint"><br>
+        Rarity <select class="rarity">
+            <option>COMMON</option>
+            <option>RARE</option>
+            <option>EPIC</option>
+            <option>LEGENDARY</option>
+        </select><br>
+        Type <select class="type">
+            <option>FUEL</option>
+            <option>STAFF</option>
+            <option>WAND</option>
+            <option>SWORD</option>
+            <option>BOW</option>
+            <option>SCROLL</option>
+        </select><br>
+        Ability <input type="checkbox" class="ability"><br>
+        <div class="abilities">
+            Ability Cost: <input type="number" class="abilityCost" placeholder="Ability Cost" value="1"><br>
+            Fuel:<br>
+            Ether<input type="radio" name="fuel" class="ether"> Aether<input type="radio" name="fuel" class="aether"><br>
+            Cooldown: <input type="number" class="cooldown" placeholder="Cooldown" value="0">
+        </div>
+
+        <h1>RESULT CODE: </h1>
+        <div class="result"></div>
+
+        <script src="main.js"></script>
+    </body>
+</html>
