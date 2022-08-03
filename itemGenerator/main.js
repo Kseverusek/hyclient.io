@@ -23,11 +23,11 @@ function updateResult() {
         r+=name+".setRarity("+rarity.selectedIndex+");";
     }
     if(type.selectedOptions.length>0) r+=name+".setType(ItemType."+type.selectedOptions[0].innerHTML+");";
-    if(ability.checked) r+=name+".setCost("+abilityCost.innerHTML+", FuelType."+(ether.value=="on"?"ETHER":"AETHER")+", "+cooldown.value+");";
+    if(ability.checked) r+=name+".setCost("+abilityCost.value+", FuelType."+(ether.value=="on"?"ETHER":"AETHER")+", "+cooldown.value+");";
     r+=name+".setName(\""+dname.value+"\");";
     r+=name+".setLore(\""+lore.value.replaceAll("\n", "\", \"")+"\");";
 
-    r+="itemList.put("+name+".id, "+name+")";
+    r+="itemList.put("+name+".id, "+name+");";
     res.innerHTML = r.replaceAll(";", ";<br>");
 }
 
