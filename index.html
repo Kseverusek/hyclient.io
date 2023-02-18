@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Konrad | Portfolio</title>
+        <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
+        <script src="https://kit.fontawesome.com/44a5136141.js" crossorigin="anonymous"></script>
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+        <header class="container-fluid d-flex row">
+            <div class="col-2 text-center"><img src="assets/icon.jpg" alt="icon" class="logotype"></div>
+            <div class="col-8 row d-flex flex-column user-info justify-content-center">
+                <div class="col-12 user-name">Konrad Rumiński</div>
+                <div class="col-12 user-role">Java / FullStack Developer</div>
+            </div>
+            <div class="col links d-flex flex-column justify-content-center">
+                <div class="col-12 theme text-end" onclick="changeTheme();">
+                    <i class="fa-regular fa-sun"></i>Light
+                </div>
+                <div class="col-12 link" link="kefir#5683">
+                    <i class="fa-brands fa-discord"></i> Discord
+                </div>
+                <div class="col-12 link" link="https://github.com/kefir2115/">
+                    <i class="fa-brands fa-github"></i> Github
+                </div>
+                <div class="col-12 link" link="https://www.instagram.com/kefirdev/">
+                    <i class="fa-brands fa-instagram"></i> Instagram
+                </div>
+                <div class="col-12 link" link="https://www.buymeacoffee.com/kefirr">
+                    <i class="fa-solid fa-mug-saucer"></i> Buy me a coffee
+                </div>
+                <div class="col-12 link" link="https://paypal.me/kefirdev">
+                    <i class="fa-brands fa-paypal"></i> Paypal
+                </div>
+            </div>
+        </header>
+        <div class="content container-fluid d-flex row align-items-start">
+            <div class="col-xxl-2 col-md-4 col-6 projects">
+                <div class="title-small">Loading&nbsp;projects...</div>
+            </div>
+            <div class="col d-flex text-center justify-content-center">
+                <script src="post.js"></script>
+            </div>
+            <div class="col-xxl-2 col-md-4 col-6 projects"></div>
+        </div>
+        <script src="script.js"></script>
+    </body>
+</html>

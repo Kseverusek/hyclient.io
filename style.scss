@@ -1,0 +1,109 @@
+*[link] {
+    cursor: pointer;
+}
+body {
+    background-color: var(--bg);
+    color: var(--f);
+    transition: all .5s ease-in-out;
+}
+header {
+    .col-2 {
+        display: flex;
+        .logotype {
+            width: 100%;
+            border: 5px solid black;
+            border-radius: 100%;
+            align-self: center;
+            justify-self: center;
+        }
+    }
+    .user-info {
+        text-align: center;
+        font-size: 250%;
+        align-items: center;
+        .user-name {
+            font-weight: 800;
+        }
+        .user-role {
+            letter-spacing: 5px;
+            font-weight: 100;
+        }
+    }
+    .links {
+        .theme {
+            margin-bottom: 5rem;
+            font-size: 150%;
+            min-width: 10rem;
+            cursor: pointer;
+        }
+        .link {
+            cursor: pointer;
+            height: fit-content;
+            margin: .2rem 0;
+        }
+    }
+}
+.content {
+    .projects {
+        .title {
+            font-weight: 700;
+            font-size: 200%;
+            text-align: center;
+        }
+        .title-small {
+            font-weight: 700;
+            font-size: 120%;
+            text-align: center;
+        }
+        .list {
+            .project:nth-child(1) {
+                $b: rgb(51, 125, 173);
+                border-color: $b;
+                border-width: 2px;
+                animation: latestShadow infinite linear 5s;
+                z-index: -1;
+                .name::after {
+                    content: 'LATEST UPDATE';
+                    z-index: -1;
+                    padding: 0 .5rem;
+                    font-weight: 700;
+                    letter-spacing: -2px;
+                }
+            }
+            .project {
+                border: 1px solid black;
+                margin: .25rem;
+                padding: 5px;
+                .name {
+                    font-size: 120%;
+                    font-weight: 500;
+                }
+                .desc {
+                    font-size: 85%;
+                }
+            }
+        }
+    }
+}
+
+@keyframes latestShadow {
+    $b: rgb(51, 125, 173);
+    0% {
+        box-shadow: 0 0 10px 0 $b;
+    }
+    50% {
+        box-shadow: 0 0 10px 5px $b;
+    }
+    100% {
+        box-shadow: 0 0 10px 0 $b;
+    }
+}
+
+@keyframes rotate {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}

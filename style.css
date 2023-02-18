@@ -1,0 +1,100 @@
+*[link] {
+  cursor: pointer;
+}
+
+body {
+  background-color: var(--bg);
+  color: var(--f);
+  transition: all 0.5s ease-in-out;
+}
+
+header .col-2 {
+  display: flex;
+}
+header .col-2 .logotype {
+  width: 100%;
+  border: 5px solid black;
+  border-radius: 100%;
+  align-self: center;
+  justify-self: center;
+}
+header .user-info {
+  text-align: center;
+  font-size: 250%;
+  align-items: center;
+}
+header .user-info .user-name {
+  font-weight: 800;
+}
+header .user-info .user-role {
+  letter-spacing: 5px;
+  font-weight: 100;
+}
+header .links .theme {
+  margin-bottom: 5rem;
+  font-size: 150%;
+  min-width: 10rem;
+  cursor: pointer;
+}
+header .links .link {
+  cursor: pointer;
+  height: -moz-fit-content;
+  height: fit-content;
+  margin: 0.2rem 0;
+}
+
+.content .projects .title {
+  font-weight: 700;
+  font-size: 200%;
+  text-align: center;
+}
+.content .projects .title-small {
+  font-weight: 700;
+  font-size: 120%;
+  text-align: center;
+}
+.content .projects .list .project:nth-child(1) {
+  border-color: rgb(51, 125, 173);
+  border-width: 2px;
+  animation: latestShadow infinite linear 5s;
+  z-index: -1;
+}
+.content .projects .list .project:nth-child(1) .name::after {
+  content: "LATEST UPDATE";
+  z-index: -1;
+  padding: 0 0.5rem;
+  font-weight: 700;
+  letter-spacing: -2px;
+}
+.content .projects .list .project {
+  border: 1px solid black;
+  margin: 0.25rem;
+  padding: 5px;
+}
+.content .projects .list .project .name {
+  font-size: 120%;
+  font-weight: 500;
+}
+.content .projects .list .project .desc {
+  font-size: 85%;
+}
+
+@keyframes latestShadow {
+  0% {
+    box-shadow: 0 0 10px 0 rgb(51, 125, 173);
+  }
+  50% {
+    box-shadow: 0 0 10px 5px rgb(51, 125, 173);
+  }
+  100% {
+    box-shadow: 0 0 10px 0 rgb(51, 125, 173);
+  }
+}
+@keyframes rotate {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}/*# sourceMappingURL=style.css.map */
