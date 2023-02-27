@@ -1,0 +1,83 @@
+body {
+  background-color: rgb(20, 20, 20);
+  color: rgb(185, 185, 185);
+}
+body b {
+  color: rgb(140, 81, 163);
+  text-shadow: 0 0 3px;
+}
+
+.content .view {
+  text-align: center;
+  height: 100vh;
+}
+.content .setup-list {
+  margin-top: 5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.content .setup-list .setting .name {
+  margin-right: 1rem;
+  font-size: 1.5rem;
+}
+.content .setup-list .setting * {
+  float: left;
+}
+.content .setup-list .setting select {
+  background-color: rgb(140, 81, 163);
+  color: rgb(216, 216, 216);
+  padding: 0.2rem;
+  border-radius: 0.2rem 0.2rem 0 0;
+  border: none;
+}
+.content .setup-list .setting select:focus {
+  outline: none;
+}
+.content .setup-list .setting input {
+  background-color: rgba(0, 0, 0, 0);
+  color: rgb(185, 185, 185);
+  border: 1px black solid;
+  border-radius: 1rem;
+}
+.content .setup-list .setting input:focus {
+  outline: none;
+}
+.content .setup-list button {
+  background-color: rgba(0, 0, 0, 0);
+  color: rgb(185, 185, 185);
+  border: 1px black solid;
+  border-radius: 1rem;
+  padding: 0 1rem;
+  font-size: 2rem;
+}
+.content .setup-list button:focus {
+  outline: none;
+}
+.content .view-main input.search-field {
+  background-color: rgb(37, 37, 37);
+  color: rgb(185, 185, 185);
+  border: 1px black solid;
+  border-radius: 1rem;
+  font-size: 2rem;
+  position: relative;
+}
+.content .view-main input.search-field:focus {
+  outline: none;
+}
+.content .view-main button {
+  background-color: rgb(37, 37, 37);
+  color: rgb(185, 185, 185);
+  border: 1px black solid;
+  border-radius: 1rem;
+  padding: 0 1rem;
+  font-size: 2rem;
+  transition: background-color 0.25s ease;
+}
+.content .view-main button:focus {
+  outline: none;
+}
+.content .view-main button:hover {
+  background-color: rgb(140, 81, 163);
+}/*# sourceMappingURL=style.css.map */
