@@ -12,7 +12,7 @@ function update() {
     let e = document.querySelector(".countdown");
 
     let d = getETA();
-    let a = d>0?format((d.getDate()*24)+d.getHours())+":"+format(d.getMinutes())+":"+format(d.getSeconds()):"00:00:00";
+    let a = d>0?format(((d.getDate()-1)*24)+(d.getHours()-1))+":"+format(d.getMinutes())+":"+format(d.getSeconds()):"00:00:00";
 
     e.innerHTML = a;
     document.title = a;
