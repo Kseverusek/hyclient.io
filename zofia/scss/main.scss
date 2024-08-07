@@ -1,0 +1,90 @@
+@use "const.scss" as *;
+
+body {
+    display: flex;
+    flex-direction: column;
+
+    margin: 0;
+    padding: 0;
+
+    font-family: "Kanit";
+    font-weight: 200;
+
+    color: var(--font);
+    background-color: $bg;
+    transition: opacity 0.3s ease-out;
+    * {
+        border: unset;
+        outline: none;
+
+        font-family: unset;
+
+        color: unset;
+        background-color: unset;
+        &:fullscreen {
+            overflow: scroll !important;
+        }
+    }
+
+    .challenge-box {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+
+        font-size: 200%;
+        text-align: center;
+    }
+    .block {
+        overflow: scroll;
+        scroll-behavior: smooth;
+        background-color: var(--col);
+    }
+    .segment {
+        display: flex;
+        flex-direction: column;
+
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+
+        width: 100%;
+        height: 100vh;
+
+        text-shadow: 1px 1px 3px var(--font);
+    }
+    .navigator {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 1.5rem;
+
+        display: flex;
+        .item {
+            width: var(--w);
+            text-align: center;
+            background: var(--c);
+        }
+    }
+}
+
+input {
+    border: double 3px transparent;
+    border-radius: 1rem;
+    background-image: linear-gradient(var(--col), var(--col)), $gradient-1;
+    background-origin: border-box;
+    background-clip: padding-box, border-box;
+}
+
+*[hide] {
+    opacity: 0;
+}
+
+::-webkit-scrollbar {
+    width: 0;
+}
+
+b {
+    font-weight: 800;
+}
